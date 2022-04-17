@@ -8,6 +8,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private GameManager gameManager;
     [SerializeField] private MazeTilemapAdapter mazeTilemap;
     [SerializeField] private float summonInterval;
+    [SerializeField] private float startDelay;
     [SerializeField] private Enemy enemyPrefab;
     [SerializeField] private List<EnemyCharacteritics> characteritics = new();
 
@@ -28,6 +29,7 @@ public class EnemySpawner : MonoBehaviour
 
     private IEnumerator SummonCoroutine(int summonCount)
     {
+        yield return new WaitForSeconds(startDelay);
         while (summonCount-- > 0)
         {
             yield return new WaitForSeconds(summonInterval);
