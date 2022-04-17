@@ -18,9 +18,14 @@ public class EnemySpawner : MonoBehaviour
 
     public bool SpawnedAll { get; private set; }
 
+    public void InitPosition()
+    {
+        transform.position = mazeTilemap.SpawnerPosition + new Vector3(0.5f, 0.5f);
+    }
+
     public void StartSummon(IEnumerable<SpawnDescription> spawns)
     {
-        summonPositon = mazeTilemap.SpawnerPosition + new Vector3(0.5f, 1.5f);
+        summonPositon = transform.position;
         var path = mazeTilemap.Path;
         bakedPath = BakePath(path);
         SpawnedAll = false;

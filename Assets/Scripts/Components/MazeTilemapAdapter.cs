@@ -15,8 +15,7 @@ public class MazeTilemapAdapter : MonoBehaviour, IBitMap
     [SerializeField, Range(3, 1001)] private int height;
     [SerializeField, Range(1, 1001)] private int mazeCurvity;
     [SerializeField] private TileBase wallTile;
-    [SerializeField] private TileBase spawnerTile;
-    [SerializeField] private TileBase castleTile;
+    [SerializeField] private TileBase backgroundTile;
 
     private Tilemap tilemap;
     private MazeGenerator mazeGenerator;
@@ -41,7 +40,11 @@ public class MazeTilemapAdapter : MonoBehaviour, IBitMap
 
     public bool this[int x, int y]
     {
-        get => tilemap.HasTile(GetTilePosition(x, y));
+        get
+        {
+            var tileCollider = tilemap.GetColliderType(GetTilePosition(x, y));
+            return tileCollider != Tile.ColliderType.None;
+        }
         set
         {
             var tile = value ? wallTile : null;
@@ -53,15 +56,14 @@ public class MazeTilemapAdapter : MonoBehaviour, IBitMap
     public void GenerateMaze()
     {
         mazeGenerator.Generate(this, MazeStartPoint, mazeCurvity);
-        Path = mazeSolver.GetPath(MazeStartPoint, MazeEndPoint);
+        MakeBackground();
 
-        SetSpecialTiles();
+        Path = mazeSolver.GetPath(MazeStartPoint, MazeEndPoint);
     }
 
-    private void SetSpecialTiles()
+    private void MakeBackground()
     {
-        tilemap.SetTile(SpawnerPosition, spawnerTile);
-        tilemap.SetTile(CastlePosition, castleTile);
+        tilemap.FloodFill(SpawnerPosition, backgroundTile);
     }
 
     public Vector3Int GetTilePosition(Vector2Int point)

@@ -49,8 +49,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 0.1
   RotateSpeed: 45
+  gameManager: {fileID: 0}
   characteritics:
-    Health: 0
+    MaxHealth: 0
+    KillMoney: 0
+    sprite: {fileID: 0}
+  Dead:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!212 &7021740455767352668
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -92,8 +98,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: e30c6f270336e8342aaaf3847ff0b95f, type: 3}
-  m_Color: {r: 0.6792453, g: 0.16975577, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: e30c6f270336e8342aaaf3847ff0b95f, type: 3}
+  m_Color: {r: 0.7924528, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

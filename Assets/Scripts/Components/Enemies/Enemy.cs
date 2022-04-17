@@ -22,6 +22,9 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         Health = characteritics.MaxHealth;
+
+        var spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = characteritics.sprite;
     }
 
     void FixedUpdate()

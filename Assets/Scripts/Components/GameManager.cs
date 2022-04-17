@@ -17,9 +17,11 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         towerManager.InitTowerSlots(mazeTilemap);
+        spawner.InitPosition();
+        RoundNumber = 1;
+
         mazeTilemap.GenerateMaze();
         castle.FixCastle();
-        RoundNumber = 1;
         
         ScheduleRoundStart();
     }

@@ -5,6 +5,7 @@ public class Tower : MonoBehaviour
 {
     private TowerCharacteristics characteristics;
     private CircleCollider2D rangeTrigger;
+    private SpriteRenderer spriteRenderer;
 
     [SerializeField] private Bullet bulletPrefab;
     [SerializeField] private int shootInterval;
@@ -17,12 +18,14 @@ public class Tower : MonoBehaviour
     void Awake()
     {
         rangeTrigger = GetComponent<CircleCollider2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     public void SetCharacteristics(TowerCharacteristics characteristics)
     {
         this.characteristics = characteristics;
         rangeTrigger.radius = characteristics.Range + 1;
+        spriteRenderer.sprite = characteristics.sprite;
     }
 
     void OnTriggerStay2D(Collider2D collision)

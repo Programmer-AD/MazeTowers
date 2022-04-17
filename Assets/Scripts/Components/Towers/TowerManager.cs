@@ -18,7 +18,7 @@ public class TowerManager : MonoBehaviour
             {
                 var towerSlot = Instantiate(towerSlotPrefab);
                 towerSlot.towerManager = this;
-                var position = mazeTilemap.GetTilePosition(x, y) + new Vector3(0.5f, 1.5f, -3);
+                var position = mazeTilemap.GetTilePosition(x, y) + new Vector3(0.5f, 0.5f, -3);
                 towerSlot.transform.position = position;
             }
         }

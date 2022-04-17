@@ -6,7 +6,8 @@ public class MoneyAssistant : MonoBehaviour
     [SerializeField] private double startMoney;
 
     private double money;
-    public double Money { 
+    public double Money
+    {
         get => money;
         private set
         {
@@ -44,6 +45,9 @@ public class MoneyAssistant : MonoBehaviour
 
     public void OnEnemyDead(Enemy enemy)
     {
-        Money += enemy.characteritics.KillMoney;
+        if (enemy.characteritics != null)
+        {
+            Money += enemy.characteritics.KillMoney;
+        }
     }
 }

@@ -25,6 +25,7 @@ public class Castle : MonoBehaviour
         if (other.TryGetComponent<Enemy>(out var enemy))
         {
             Health--;
+            enemy.characteritics = null;
             Destroy(enemy.gameObject);
         }
     }
@@ -32,7 +33,7 @@ public class Castle : MonoBehaviour
     public void FixCastle()
     {
         Health = MaxHealth;
-        transform.position = mazeTilemap.CastlePosition + new Vector3(0.5f, 1.5f);
+        transform.position = mazeTilemap.CastlePosition + new Vector3(0.5f, 0.5f);
     }
 
     public UnityEvent<int, int> HealthChanged;
