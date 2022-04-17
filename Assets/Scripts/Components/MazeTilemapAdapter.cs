@@ -3,15 +3,13 @@ using System.Linq;
 using MazeTowers.Mazes;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using UnityEngine.WSA;
 
-
-internal class MazeTilemapAdapter : MonoBehaviour, IBitMap
+public class MazeTilemapAdapter : MonoBehaviour, IBitMap
 {
     private const int WallLayerZ = 0;
 
-    private static readonly Vector2Int MazeStartPoint = new(1, 1);
-    private Vector2Int MazeEndPoint => new(width - 2, height - 2);
+    private Vector2Int MazeStartPoint => new(1, height - 2);
+    private Vector2Int MazeEndPoint => new(width - 2, 1);
 
     [SerializeField, Range(3, 1001)] private int width;
     [SerializeField, Range(3, 1001)] private int height;
@@ -29,7 +27,7 @@ internal class MazeTilemapAdapter : MonoBehaviour, IBitMap
     public Vector3Int SpawnerPosition => GetTilePosition(MazeStartPoint);
     public Vector3Int CastlePosition => GetTilePosition(MazeEndPoint);
 
-    void Start()
+    void Awake()
     {
         tilemap = GetComponent<Tilemap>();
 
@@ -82,6 +80,6 @@ internal class MazeTilemapAdapter : MonoBehaviour, IBitMap
 
     private Vector3Int GetTilePosition(int x, int y)
     {
-        return new Vector3Int(x - Width / 2, Height / 2 - y, WallLayerZ);
+        return new Vector3Int(x - Width / 2, y - Height / 2, WallLayerZ);
     }
 }

@@ -1,7 +1,7 @@
 using System;
 
 [Serializable]
-public struct EnemyCharacteritics
+public class EnemyCharacteritics
 {
     public int Health;
 }

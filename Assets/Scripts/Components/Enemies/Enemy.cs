@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float Speed;
     [SerializeField] private float RotateSpeed;
 
+    public GameManager gameManager;
     public EnemyCharacteritics characteritics;
     public IEnumerator<PathSegment> pathMover;
 
@@ -17,7 +19,10 @@ public class Enemy : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (moveBy > Precision)
+        if (!gameManager.RoundGoing)
+        {
+            Destroy(gameObject);
+        }else if (moveBy > Precision)
         {
             var move = Math.Min(moveBy, Speed);
             transform.Translate(move * Vector3.up);
@@ -43,5 +48,12 @@ public class Enemy : MonoBehaviour
                 pathMover = null;
             }
         }
+    }
+
+    public UnityEvent Dead;
+
+    void OnDestroy()
+    {
+        Dead?.Invoke();
     }
 }

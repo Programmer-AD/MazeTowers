@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemySpawner : MonoBehaviour
 {
+    [SerializeField] private GameManager gameManager;
     [SerializeField] private MazeTilemapAdapter mazeTilemap;
     [SerializeField] private float SummonInterval;
     [SerializeField] private Enemy enemyPrefab;
@@ -12,11 +14,14 @@ public class EnemySpawner : MonoBehaviour
     private IEnumerable<PathSegment> bakedPath;
     private Vector3 summonPositon;
 
+    public bool SpawnedAll { get; private set; }
+
     public void StartSummon(int summonCount)
     {
         summonPositon = mazeTilemap.SpawnerPosition + new Vector3(0.5f, 1.5f);
         var path = mazeTilemap.Path;
         bakedPath = BakePath(path);
+        SpawnedAll = false;
 
         StartCoroutine(SummonCoroutine(summonCount));
     }
@@ -25,17 +30,25 @@ public class EnemySpawner : MonoBehaviour
     {
         while (summonCount-- > 0)
         {
-            SummonEnemy();
             yield return new WaitForSeconds(SummonInterval);
+            SummonEnemy();
         }
+        SpawnedAll=true;
     }
 
     private void SummonEnemy()
     {
         var enemy = Instantiate(enemyPrefab, summonPositon, Quaternion.identity);
         enemy.pathMover = bakedPath.GetEnumerator();
+        enemy.gameManager = gameManager;
+        enemy.Dead = EnemyDead;
         enemy.characteritics = characteritics[0];
+
+        EnemySpawned?.Invoke();
     }
+
+    public UnityEvent EnemySpawned;
+    public UnityEvent EnemyDead;
 
     private static IEnumerable<PathSegment> BakePath(IEnumerable<Vector2Int> path)
     {

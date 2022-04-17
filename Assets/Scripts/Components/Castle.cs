@@ -1,18 +1,44 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Castle : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private MazeTilemapAdapter mazeTilemap;
+    [SerializeField] private int MaxHealth;
+
+    private int health;
+    public int Health
     {
-        
+        get => health;
+        private set
+        {
+            if (health != value)
+            {
+                health = value;
+                OnHealthChanged();
+            }
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        
+        var enemy = other.GetComponent<Enemy>();
+        if (enemy != null)
+        {
+            Health--;
+            Destroy(enemy.gameObject);
+        }
+    }
+
+    public void FixCastle()
+    {
+        Health = MaxHealth;
+        transform.position = mazeTilemap.CastlePosition + new Vector3(0.5f, 1.5f);
+    }
+
+    public UnityEvent<int> HealthChanged;
+    private void OnHealthChanged()
+    {
+        HealthChanged?.Invoke(health);
     }
 }
