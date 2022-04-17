@@ -5,4 +5,5 @@ public class TowerCharacteristics
 {
     public float Range;
     public float Damage;
+    public double Price;
 }

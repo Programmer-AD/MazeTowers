@@ -4,6 +4,7 @@ using UnityEngine;
 public class TowerManager : MonoBehaviour
 {
     [SerializeField] private GameManager gameManager;
+    [SerializeField] private MoneyAssistant moneyAssistant;
     [SerializeField] private Tower towerPrefab;
     [SerializeField] private TowerSlot towerSlotPrefab;
 
@@ -27,15 +28,25 @@ public class TowerManager : MonoBehaviour
     {
         if (towerSlot.tower == null)
         {
-            towerSlot.Level = 0;
+            var characteristic = characteristics[0];
+            if (moneyAssistant.Withdraw(characteristic.Price))
+            {
+                towerSlot.Level = 0;
 
-            var towerPosition = towerSlot.transform.position - Vector3.forward;
-            towerSlot.tower = Instantiate(towerPrefab, towerPosition, Quaternion.identity);
-            towerSlot.tower.gameManager = gameManager;
-            towerSlot.tower.SetCharacteristics(characteristics[0]);
-        }else if (towerSlot.Level + 1 < characteristics.Count)
+                var towerPosition = towerSlot.transform.position - Vector3.forward;
+                towerSlot.tower = Instantiate(towerPrefab, towerPosition, Quaternion.identity);
+                towerSlot.tower.gameManager = gameManager;
+                towerSlot.tower.SetCharacteristics(characteristic);
+            }
+        }
+        else if (towerSlot.Level + 1 < characteristics.Count)
         {
-            towerSlot.tower.SetCharacteristics(characteristics[++towerSlot.Level]);
+            var characteristic = characteristics[towerSlot.Level + 1];
+            if (moneyAssistant.Withdraw(characteristic.Price))
+            {
+                towerSlot.tower.SetCharacteristics(characteristic);
+                towerSlot.Level++;
+            }
         }
     }
 }

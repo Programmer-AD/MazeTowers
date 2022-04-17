@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
         enemyExists++;
     }
 
-    public void OnEnemyDead()
+    public void OnEnemyDead(Enemy _)
     {
         enemyExists--;
         if (enemyExists == 0 && RoundGoing && spawner.SpawnedAll)

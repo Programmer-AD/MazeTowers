@@ -3,5 +3,6 @@ using System;
 [Serializable]
 public class EnemyCharacteritics
 {
-    public int Health;
+    public float MaxHealth;
+    public double KillMoney;
 }

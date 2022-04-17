@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        Health = characteritics.Health;
+        Health = characteritics.MaxHealth;
     }
 
     void FixedUpdate()
@@ -57,11 +57,11 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public UnityEvent Dead;
+    public UnityEvent<Enemy> Dead;
 
     void OnDestroy()
     {
-        Dead?.Invoke();
+        Dead?.Invoke(this);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

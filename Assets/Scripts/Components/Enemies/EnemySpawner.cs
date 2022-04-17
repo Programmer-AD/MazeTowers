@@ -50,7 +50,7 @@ public class EnemySpawner : MonoBehaviour
     }
 
     public UnityEvent EnemySpawned;
-    public UnityEvent EnemyDead;
+    public UnityEvent<Enemy> EnemyDead;
 
     private static IEnumerable<PathSegment> BakePath(IEnumerable<Vector2Int> path)
     {
