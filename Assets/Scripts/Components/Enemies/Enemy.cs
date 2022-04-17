@@ -17,6 +17,13 @@ public class Enemy : MonoBehaviour
     private float moveBy;
     private float rotateBy;
 
+    public float Health { get; private set; }
+
+    void Start()
+    {
+        Health = characteritics.Health;
+    }
+
     void FixedUpdate()
     {
         if (!gameManager.RoundGoing)
@@ -55,5 +62,18 @@ public class Enemy : MonoBehaviour
     void OnDestroy()
     {
         Dead?.Invoke();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.TryGetComponent<Bullet>(out var bullet))
+        {
+            Health -= bullet.Damage;
+            if (Health <= 0)
+            {
+                Destroy(gameObject);
+                Destroy(bullet.gameObject);
+            }
+        }
     }
 }

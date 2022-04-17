@@ -7,7 +7,7 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private GameManager gameManager;
     [SerializeField] private MazeTilemapAdapter mazeTilemap;
-    [SerializeField] private float SummonInterval;
+    [SerializeField] private float summonInterval;
     [SerializeField] private Enemy enemyPrefab;
     [SerializeField] private List<EnemyCharacteritics> characteritics = new();
 
@@ -30,10 +30,10 @@ public class EnemySpawner : MonoBehaviour
     {
         while (summonCount-- > 0)
         {
-            yield return new WaitForSeconds(SummonInterval);
+            yield return new WaitForSeconds(summonInterval);
             SummonEnemy();
         }
-        SpawnedAll=true;
+        SpawnedAll = true;
     }
 
     private void SummonEnemy()

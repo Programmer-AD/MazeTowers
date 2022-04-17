@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private MazeTilemapAdapter mazeTilemap;
     [SerializeField] private EnemySpawner spawner;
     [SerializeField] private Castle castle;
+    [SerializeField] private TowerManager towerManager;
 
     private int enemyExists;
 
@@ -12,6 +13,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        towerManager.InitTowerSlots(mazeTilemap);
         StartRound();
     }
 

@@ -252,6 +252,56 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &640393819
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 640393820}
+  - component: {fileID: 640393821}
+  m_Layer: 0
+  m_Name: TowerManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &640393820
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640393819}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1374614650}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &640393821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640393819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f179c45c2a141b448b4e7edc2cb941bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 862155974}
+  towerPrefab: {fileID: -6887700828339866654, guid: 2dc3092105a6d6845a27ab39cd5c4ec6, type: 3}
+  towerSlotPrefab: {fileID: -7825800777338422358, guid: 6c0bf7cc1e82366468384d6645de112d, type: 3}
+  characteristics:
+  - Range: 1.5
+    Damage: 1
 --- !u!1 &862155973
 GameObject:
   m_ObjectHideFlags: 0
@@ -284,6 +334,7 @@ MonoBehaviour:
   mazeTilemap: {fileID: 1867685991}
   spawner: {fileID: 1538860119}
   castle: {fileID: 1952797794}
+  towerManager: {fileID: 640393821}
 --- !u!4 &862155975
 Transform:
   m_ObjectHideFlags: 0
@@ -394,8 +445,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1538860120}
   - {fileID: 1952797793}
+  - {fileID: 1538860120}
+  - {fileID: 640393820}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -430,10 +482,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 862155974}
   mazeTilemap: {fileID: 1867685991}
-  SummonInterval: 0.5
+  summonInterval: 0.75
   enemyPrefab: {fileID: 1884622468648275942, guid: bd2e84492443a2e4a8b669a4f7ad065f, type: 3}
   characteritics:
-  - Health: 100
+  - Health: 10
   EnemySpawned:
     m_PersistentCalls:
       m_Calls:
@@ -472,12 +524,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1538860118}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.10914, y: 3.3697672, z: 0.4090966}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1374614650}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1867685987
 GameObject:
@@ -612,7 +664,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e879d2c2e4e71da4886e55afd159a42a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 23
+  width: 25
   height: 11
   mazeCurvity: 1
   wallTile: {fileID: 11400000, guid: 225fdc5cd450e3e49a48586157e4c294, type: 2}
@@ -821,12 +873,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1952797792}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.692927, y: 3.9188187, z: 0.4438218}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1374614650}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1952797794
 MonoBehaviour:

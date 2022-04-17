@@ -53,8 +53,7 @@ public class MazeTilemapAdapter : MonoBehaviour, IBitMap
     public void GenerateMaze()
     {
         mazeGenerator.Generate(this, MazeStartPoint, mazeCurvity);
-        var path = mazeSolver.GetPath(MazeStartPoint, MazeEndPoint);
-        Path = MakeGlobal(path);
+        Path = mazeSolver.GetPath(MazeStartPoint, MazeEndPoint);
 
         SetSpecialTiles();
     }
@@ -65,20 +64,12 @@ public class MazeTilemapAdapter : MonoBehaviour, IBitMap
         tilemap.SetTile(CastlePosition, castleTile);
     }
 
-    private IEnumerable<Vector2Int> MakeGlobal(IEnumerable<Vector2Int> path)
-    {
-        var result = path
-            .Select(x => (Vector2Int)GetTilePosition(x))
-            .ToList();
-        return result;
-    }
-
-    private Vector3Int GetTilePosition(Vector2Int point)
+    public Vector3Int GetTilePosition(Vector2Int point)
     {
         return GetTilePosition(point.x, point.y);
     }
 
-    private Vector3Int GetTilePosition(int x, int y)
+    public Vector3Int GetTilePosition(int x, int y)
     {
         return new Vector3Int(x - Width / 2, y - Height / 2, WallLayerZ);
     }
