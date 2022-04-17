@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,34 +18,41 @@ public class EnemySpawner : MonoBehaviour
 
     public bool SpawnedAll { get; private set; }
 
-    public void StartSummon(int summonCount)
+    public void StartSummon(IEnumerable<SpawnDescription> spawns)
     {
         summonPositon = mazeTilemap.SpawnerPosition + new Vector3(0.5f, 1.5f);
         var path = mazeTilemap.Path;
         bakedPath = BakePath(path);
         SpawnedAll = false;
 
-        StartCoroutine(SummonCoroutine(summonCount));
+        StartCoroutine(SummonCoroutine(spawns));
     }
 
-    private IEnumerator SummonCoroutine(int summonCount)
+    private IEnumerator SummonCoroutine(IEnumerable<SpawnDescription> spawns)
     {
         yield return new WaitForSeconds(startDelay);
-        while (summonCount-- > 0)
+        var spawnEnumerator = spawns.GetEnumerator();
+
+        while (spawnEnumerator.MoveNext())
         {
-            yield return new WaitForSeconds(summonInterval);
-            SummonEnemy();
+            var spawn = spawnEnumerator.Current;
+            spawn.Level = Math.Min(spawn.Level, characteritics.Count - 1);
+            while (spawn.Count-- > 0)
+            {
+                yield return new WaitForSeconds(summonInterval);
+                SummonEnemy(spawn.Level);
+            }
         }
         SpawnedAll = true;
     }
 
-    private void SummonEnemy()
+    private void SummonEnemy(int level)
     {
         var enemy = Instantiate(enemyPrefab, summonPositon, Quaternion.identity);
         enemy.pathMover = bakedPath.GetEnumerator();
         enemy.gameManager = gameManager;
         enemy.Dead = EnemyDead;
-        enemy.characteritics = characteritics[0];
+        enemy.characteritics = characteritics[level];
 
         EnemySpawned?.Invoke();
     }

@@ -1262,9 +1262,9 @@ MonoBehaviour:
   startDelay: 2
   enemyPrefab: {fileID: 1884622468648275942, guid: bd2e84492443a2e4a8b669a4f7ad065f, type: 3}
   characteritics:
-  - MaxHealth: 10
+  - MaxHealth: 5
     KillMoney: 5
-  - MaxHealth: 40
+  - MaxHealth: 20
     KillMoney: 25
   EnemySpawned:
     m_PersistentCalls:

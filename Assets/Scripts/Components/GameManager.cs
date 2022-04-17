@@ -27,14 +27,12 @@ public class GameManager : MonoBehaviour
     public UnityEvent<int> RoundStarted;
     public void StartRound()
     {
-        mazeTilemap.GenerateMaze();
-        castle.FixCastle();
-
         enemyExists = 0;
         RoundGoing = true;
         RoundStarted?.Invoke(RoundNumber);
 
-        spawner.StartSummon(10);
+        var spawns = SpawnCalculator.GetSpawns(RoundNumber, mazeTilemap);
+        spawner.StartSummon(spawns);
     }
 
     public void OnCastleHealthChanged(int health, int _)
@@ -65,6 +63,9 @@ public class GameManager : MonoBehaviour
     {
         RoundGoing = false;
         RoundEnded?.Invoke(RoundNumber, win);
+
+        mazeTilemap.GenerateMaze();
+        castle.FixCastle();
 
         if (win)
         {
