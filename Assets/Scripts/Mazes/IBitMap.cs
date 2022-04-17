@@ -1,4 +1,4 @@
-﻿namespace ForTestsCSharp.Mazes
+﻿namespace MazeTowers.Mazes
 {
     interface IBitMap
     {

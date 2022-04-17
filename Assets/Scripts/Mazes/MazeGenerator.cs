@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ForTestsCSharp.Mazes
+namespace MazeTowers.Mazes
 {
     class MazeGenerator
     {
-        private readonly Unity.Mathematics.Random random;
+        private readonly System.Random random;
 
         private readonly Stack<Vector2Int> targetPoints;
         private readonly List<(Vector2Int, int Length)> possibleMovements;
@@ -16,7 +16,7 @@ namespace ForTestsCSharp.Mazes
         private BitMap visitedCells;
         private int toVisit;
 
-        public MazeGenerator(Unity.Mathematics.Random random)
+        public MazeGenerator(System.Random random)
         {
             this.random = random;
 
@@ -90,9 +90,9 @@ namespace ForTestsCSharp.Mazes
 
                 if (possibleMovements.Count > 0)
                 {
-                    var index = random.NextInt(possibleMovements.Count);
+                    var index = random.Next(possibleMovements.Count);
                     var (delta, maxLength) = possibleMovements[index];
-                    var length = random.NextInt(1, maxLength + 1);
+                    var length = random.Next(1, maxLength + 1);
 
                     while (length-- > 0)
                     {

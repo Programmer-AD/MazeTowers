@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 
-namespace ForTestsCSharp.Mazes
+namespace MazeTowers.Mazes
 {
     class BitMap : IBitMap
     {
