@@ -35,9 +35,9 @@ public class Castle : MonoBehaviour
         transform.position = mazeTilemap.CastlePosition + new Vector3(0.5f, 1.5f);
     }
 
-    public UnityEvent<int> HealthChanged;
+    public UnityEvent<int, int> HealthChanged;
     private void OnHealthChanged()
     {
-        HealthChanged?.Invoke(health);
+        HealthChanged?.Invoke(health, MaxHealth);
     }
 }

@@ -17,9 +17,11 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         towerManager.InitTowerSlots(mazeTilemap);
-        RoundNumber = 0;
+        mazeTilemap.GenerateMaze();
+        castle.FixCastle();
+        RoundNumber = 1;
         
-        StartRound();
+        ScheduleRoundStart();
     }
 
     public UnityEvent<int> RoundStarted;
@@ -35,7 +37,7 @@ public class GameManager : MonoBehaviour
         spawner.StartSummon(10);
     }
 
-    public void OnCastleHealthChanged(int health)
+    public void OnCastleHealthChanged(int health, int _)
     {
         if (health <= 0 && RoundGoing)
         {
