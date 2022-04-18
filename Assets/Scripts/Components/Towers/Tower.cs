@@ -24,7 +24,7 @@ public class Tower : MonoBehaviour
     public void SetCharacteristics(TowerCharacteristics characteristics)
     {
         this.characteristics = characteristics;
-        rangeTrigger.radius = characteristics.Range + 1;
+        rangeTrigger.radius = characteristics.Range;
         spriteRenderer.sprite = characteristics.sprite;
     }
 
@@ -48,7 +48,7 @@ public class Tower : MonoBehaviour
     {
         if (characteristics != null && shootCooldown-- <= 0 && enemyNearby)
         {
-            var bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+            var bullet = Instantiate(bulletPrefab, transform.position, transform.rotation, transform);
             bullet.Damage = characteristics.Damage;
             bullet.FlyDistance = characteristics.Range;
 

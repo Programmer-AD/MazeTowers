@@ -53,7 +53,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void SummonEnemy(int level)
     {
-        var enemy = Instantiate(enemyPrefab, summonPositon, Quaternion.identity);
+        var enemy = Instantiate(enemyPrefab, summonPositon, Quaternion.identity, transform);
         enemy.pathMover = bakedPath.GetEnumerator();
         enemy.gameManager = gameManager;
         enemy.Dead = EnemyDead;

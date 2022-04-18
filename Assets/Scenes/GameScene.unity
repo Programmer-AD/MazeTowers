@@ -612,7 +612,35 @@ MonoBehaviour:
   - Range: 1.5
     Damage: 1
     Price: 20
-    sprite: {fileID: 21300000, guid: af7c733797674e54196212716ac7649b, type: 3}
+    sprite: {fileID: 21300000, guid: e4197af10e16dcf408a055021a5e96fa, type: 3}
+  - Range: 1.5
+    Damage: 1
+    Price: 20
+    sprite: {fileID: 21300000, guid: 3e1ce3758cc1d0c4cb2b125437485a1d, type: 3}
+  - Range: 1.5
+    Damage: 1
+    Price: 20
+    sprite: {fileID: 21300000, guid: f83c03a40cf41434e9711a8ed5ef391c, type: 3}
+  - Range: 1.5
+    Damage: 1
+    Price: 20
+    sprite: {fileID: 21300000, guid: 603529c6a0fc307419826b53d82646df, type: 3}
+  - Range: 1.5
+    Damage: 1
+    Price: 20
+    sprite: {fileID: 21300000, guid: 4be28970e3f2e7e40a75f86ba569bc7a, type: 3}
+  - Range: 1.5
+    Damage: 1
+    Price: 20
+    sprite: {fileID: 21300000, guid: 04894b3051157db47bec95946ac04768, type: 3}
+  - Range: 1.5
+    Damage: 1
+    Price: 20
+    sprite: {fileID: 21300000, guid: badca978e851b3a41a471698eed3f118, type: 3}
+  - Range: 1.5
+    Damage: 1
+    Price: 20
+    sprite: {fileID: 21300000, guid: d5d7d1c9423252649959b7a069ca3f8c, type: 3}
 --- !u!1 &734228838
 GameObject:
   m_ObjectHideFlags: 0
@@ -1266,10 +1294,28 @@ MonoBehaviour:
   characteritics:
   - MaxHealth: 5
     KillMoney: 5
-    sprite: {fileID: 21300000, guid: e30c6f270336e8342aaaf3847ff0b95f, type: 3}
+    sprite: {fileID: 21300000, guid: 8954560e18d1d964f8650ffa09c788aa, type: 3}
   - MaxHealth: 20
     KillMoney: 25
-    sprite: {fileID: 21300000, guid: e30c6f270336e8342aaaf3847ff0b95f, type: 3}
+    sprite: {fileID: 21300000, guid: 0cd8e61ed3041394aaef8f9d9ec49d2f, type: 3}
+  - MaxHealth: 20
+    KillMoney: 25
+    sprite: {fileID: 21300000, guid: 961ef50d14bc50045a57125be20d7c5b, type: 3}
+  - MaxHealth: 20
+    KillMoney: 25
+    sprite: {fileID: 21300000, guid: 0c8cebb04c7aab84ca68ef05d378d834, type: 3}
+  - MaxHealth: 20
+    KillMoney: 25
+    sprite: {fileID: 21300000, guid: d56932685c7c28749b195af8f28ebee1, type: 3}
+  - MaxHealth: 20
+    KillMoney: 25
+    sprite: {fileID: 21300000, guid: 20ca0037ed3456245b5846b512ca1d32, type: 3}
+  - MaxHealth: 20
+    KillMoney: 25
+    sprite: {fileID: 21300000, guid: 358d99a67a91ba14a9d46b4ba87f699d, type: 3}
+  - MaxHealth: 20
+    KillMoney: 25
+    sprite: {fileID: 21300000, guid: 086df8f1fbdc42f40b9f6e01d2ebdd93, type: 3}
   EnemySpawned:
     m_PersistentCalls:
       m_Calls:

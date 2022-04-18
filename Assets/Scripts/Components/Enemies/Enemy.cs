@@ -10,9 +10,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float Speed;
     [SerializeField] private float RotateSpeed;
 
-    public GameManager gameManager;
-    public EnemyCharacteritics characteritics;
-    public IEnumerator<PathSegment> pathMover;
+    [NonSerialized] public GameManager gameManager;
+    [NonSerialized] public EnemyCharacteritics characteritics;
+    [NonSerialized] public IEnumerator<PathSegment> pathMover;
 
     private float moveBy;
     private float rotateBy;
@@ -60,7 +60,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public UnityEvent<Enemy> Dead;
+    [NonSerialized] public UnityEvent<Enemy> Dead;
 
     void OnDestroy()
     {

@@ -7,7 +7,7 @@ public static class SpawnCalculator
     public static IEnumerable<SpawnDescription> GetSpawns(int roundNum, MazeTilemapAdapter mazeTilemap)
     {
         var mazeDifficulty = GetMazeDifficulty(mazeTilemap);
-        var roundDifficulty = (roundNum - 1) / 25f;
+        var roundDifficulty = (roundNum - 1) / 10f;
         var difficulty = roundDifficulty / mazeDifficulty;
 
         var baseSpawnCount = (mazeTilemap.Width + mazeTilemap.Height) / 4f;

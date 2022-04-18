@@ -16,7 +16,7 @@ public class TowerManager : MonoBehaviour
         {
             for (int x = 2; x < mazeTilemap.Width - 2; x += 2)
             {
-                var towerSlot = Instantiate(towerSlotPrefab);
+                var towerSlot = Instantiate(towerSlotPrefab, transform);
                 towerSlot.towerManager = this;
                 var position = mazeTilemap.GetTilePosition(x, y) + new Vector3(0.5f, 0.5f, -3);
                 towerSlot.transform.position = position;
@@ -34,7 +34,7 @@ public class TowerManager : MonoBehaviour
                 towerSlot.Level = 0;
 
                 var towerPosition = towerSlot.transform.position - Vector3.forward;
-                towerSlot.tower = Instantiate(towerPrefab, towerPosition, Quaternion.identity);
+                towerSlot.tower = Instantiate(towerPrefab, towerPosition, Quaternion.identity, towerSlot.transform);
                 towerSlot.tower.gameManager = gameManager;
                 towerSlot.tower.SetCharacteristics(characteristic);
             }
