@@ -31,6 +31,7 @@ public class Enemy : MonoBehaviour
     {
         if (!gameManager.RoundGoing)
         {
+            characteritics = null;
             Destroy(gameObject);
         }else if (moveBy > Precision)
         {

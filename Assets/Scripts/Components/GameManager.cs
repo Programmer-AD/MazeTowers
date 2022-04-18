@@ -18,10 +18,9 @@ public class GameManager : MonoBehaviour
     {
         towerManager.InitTowerSlots(mazeTilemap);
         spawner.InitPosition();
-        RoundNumber = 1;
-
-        mazeTilemap.GenerateMaze();
         castle.FixCastle();
+        mazeTilemap.GenerateMaze();
+        RoundNumber = 1;
         
         ScheduleRoundStart();
     }
@@ -30,6 +29,7 @@ public class GameManager : MonoBehaviour
     public void StartRound()
     {
         enemyExists = 0;
+        castle.FixCastle();
         RoundGoing = true;
         RoundStarted?.Invoke(RoundNumber);
 
@@ -67,7 +67,6 @@ public class GameManager : MonoBehaviour
         RoundEnded?.Invoke(RoundNumber, win);
 
         mazeTilemap.GenerateMaze();
-        castle.FixCastle();
 
         if (win)
         {
