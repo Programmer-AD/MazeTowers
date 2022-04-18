@@ -339,7 +339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c0dd0d43a220214b8c9449dc28061c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMoney: 60
+  startMoney: 40
   MoneyAmountChanged:
     m_PersistentCalls:
       m_Calls:
@@ -611,7 +611,7 @@ MonoBehaviour:
   characteristics:
   - Range: 1.5
     Damage: 1
-    Price: 15
+    Price: 10
     sprite: {fileID: 21300000, guid: e4197af10e16dcf408a055021a5e96fa, type: 3}
   - Range: 1.5
     Damage: 5
@@ -619,27 +619,27 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 3e1ce3758cc1d0c4cb2b125437485a1d, type: 3}
   - Range: 2
     Damage: 25
-    Price: 500
+    Price: 600
     sprite: {fileID: 21300000, guid: f83c03a40cf41434e9711a8ed5ef391c, type: 3}
   - Range: 2
     Damage: 100
-    Price: 2500
+    Price: 4000
     sprite: {fileID: 21300000, guid: 603529c6a0fc307419826b53d82646df, type: 3}
   - Range: 2
     Damage: 200
-    Price: 5000
+    Price: 8000
     sprite: {fileID: 21300000, guid: 4be28970e3f2e7e40a75f86ba569bc7a, type: 3}
   - Range: 2.5
     Damage: 400
-    Price: 10000
+    Price: 20000
     sprite: {fileID: 21300000, guid: 04894b3051157db47bec95946ac04768, type: 3}
   - Range: 2.5
     Damage: 800
-    Price: 20000
+    Price: 40000
     sprite: {fileID: 21300000, guid: badca978e851b3a41a471698eed3f118, type: 3}
   - Range: 3
     Damage: 2000
-    Price: 50000
+    Price: 100000
     sprite: {fileID: 21300000, guid: d5d7d1c9423252649959b7a069ca3f8c, type: 3}
 --- !u!1 &734228838
 GameObject:
@@ -991,7 +991,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a7a333bce7fe3a49ba8de16a472a6d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roundStartDelay: 10
+  roundStartDelay: 3
   mazeTilemap: {fileID: 1867685991}
   spawner: {fileID: 1538860119}
   castle: {fileID: 1952797794}
