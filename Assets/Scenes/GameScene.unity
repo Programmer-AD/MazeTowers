@@ -1296,25 +1296,25 @@ MonoBehaviour:
     KillMoney: 5
     sprite: {fileID: 21300000, guid: 8954560e18d1d964f8650ffa09c788aa, type: 3}
   - MaxHealth: 40
-    KillMoney: 25
+    KillMoney: 15
     sprite: {fileID: 21300000, guid: 0cd8e61ed3041394aaef8f9d9ec49d2f, type: 3}
   - MaxHealth: 150
-    KillMoney: 100
+    KillMoney: 60
     sprite: {fileID: 21300000, guid: 961ef50d14bc50045a57125be20d7c5b, type: 3}
   - MaxHealth: 600
-    KillMoney: 400
+    KillMoney: 250
     sprite: {fileID: 21300000, guid: 0c8cebb04c7aab84ca68ef05d378d834, type: 3}
   - MaxHealth: 1200
-    KillMoney: 800
+    KillMoney: 500
     sprite: {fileID: 21300000, guid: d56932685c7c28749b195af8f28ebee1, type: 3}
   - MaxHealth: 2500
-    KillMoney: 1500
+    KillMoney: 1000
     sprite: {fileID: 21300000, guid: 20ca0037ed3456245b5846b512ca1d32, type: 3}
   - MaxHealth: 6000
-    KillMoney: 4000
+    KillMoney: 2000
     sprite: {fileID: 21300000, guid: 358d99a67a91ba14a9d46b4ba87f699d, type: 3}
   - MaxHealth: 15000
-    KillMoney: 10000
+    KillMoney: 5000
     sprite: {fileID: 21300000, guid: 086df8f1fbdc42f40b9f6e01d2ebdd93, type: 3}
   EnemySpawned:
     m_PersistentCalls:

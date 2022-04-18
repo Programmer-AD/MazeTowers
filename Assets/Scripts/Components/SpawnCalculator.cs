@@ -10,11 +10,11 @@ public static class SpawnCalculator
         var difficulty = roundDifficulty;
 
         var baseSpawnCount = (mazeTilemap.Width + mazeTilemap.Height) / 4f;
-        var spawnCount = (int)MathF.Round((1 + difficulty / 100) * baseSpawnCount);
+        var spawnCount = (int)MathF.Round((1 + difficulty / 50f) * baseSpawnCount);
         var totalSpawnLevel = roundDifficulty * spawnCount;
 
         var baseLevel = (int)MathF.Floor(totalSpawnLevel / spawnCount);
-        var nextLevelCount = (int)MathF.Round((totalSpawnLevel - baseLevel * spawnCount) * spawnCount);
+        var nextLevelCount = (int)MathF.Round(totalSpawnLevel - baseLevel * spawnCount);
 
         var result = new List<SpawnDescription>
         {
